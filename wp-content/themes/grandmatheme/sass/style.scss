@@ -1,0 +1,26 @@
+/*
+Theme Name: Grandma's recipes
+Theme URI: http://wordpress.org
+Description: Le thème officiel de Grandma's recipes
+Author: Louis Amiot
+Author URI: http://louisamiot.com
+Version: 1.0
+Tags: black, brown, orange
+*/
+
+//Import helpers part
+@import 'helpers/reset';
+@import 'helpers/base';
+@import 'helpers/variables';
+@import 'helpers/mixins';
+@import 'helpers/icons';
+@import 'helpers/fonts';
+
+//Import pages part
+
+@import 'components/header';
+@import 'components/footer';
+
+//Import common part
+
+@import 'pages/index';

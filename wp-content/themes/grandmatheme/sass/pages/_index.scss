@@ -1,0 +1,126 @@
+body.home {
+	.main-container {
+		.content {
+			position: absolute;
+			left: 240px;
+			background-color: $lightBlue;
+			padding-left: 60px;
+			.categories, .ordering {
+				padding-top: 30px;
+				float: left;
+				width: 70%;
+				height: 200px;
+				font-family: $open;
+				font-size: 14px;
+				text-transform: uppercase;
+				a {
+					text-decoration: none;
+				}
+				li {
+					list-style: none;
+					display: inline-block;
+					padding: 5px 20px 5px 0;
+				}
+			}
+			.categories {
+				width: 66%;
+				box-sizing: border-box;
+				padding-right: 5%;
+				.title {
+					color: $white;
+					font-weight: 700;
+					display: block;
+				}
+				.cat-item, .cat-item-all {
+					font-weight: 300;
+					a {
+						color: $darkBlue;
+						&.active {
+							font-weight: 700;
+						}
+						&:hover {
+							color: $white;
+						}
+					}
+				}
+			}
+			.ordering {
+				width: 30%;
+				.title {
+					color: $white;
+					font-weight: 700;
+					display: inline-block;
+					padding: 5px 20px 5px 0;
+				}
+				a {
+					color: $darkBlue;
+					font-weight: 300;
+					display: inline-block;
+					padding: 5px 20px 5px 0;
+					&.active {
+						font-weight: 700;
+					}
+					&:hover {
+						color: $white;
+					}
+				}
+			}
+			.tips {
+				float: left;
+				width: 100%;
+				height: 100%;
+				.entry {
+					box-sizing: border-box;
+					box-shadow: 11px 11px 21px 0px rgba(0,0,0,0.18);
+					float: left;
+					width: 28%;
+					margin-right: 5%;
+					margin-bottom: 5%;
+					background-color: $white;
+					&:nth-child(3n) {
+						margin-right: 0;
+					}
+					.img-container {
+					  width: 100%;
+					  /* whatever width you want */
+					  display: inline-block;
+					  position: relative;
+					  overflow: hidden;
+					}
+					.img-container:after {
+					  padding-top: 70%;
+					  /* 16:9 ratio */
+					  display: block;
+					  content: '';
+					}
+					.wrapper {
+					  position: absolute;
+					  top: 0;
+					  bottom: 0;
+					  right: 0;
+					  left: 0;
+					  /* fill parent */
+					  background-color: deepskyblue;
+					  /* let's see it! */
+					  color: white;
+					}
+					img {
+						width: 100%;
+	    				height: auto;
+					}
+					h3 {
+						font-family: $open;
+						font-size: 14px;
+						color: $darkGray;
+						text-transform: uppercase;	
+						padding: 20px;
+						line-height: 1.5;
+					}
+				}
+			}
+		}
+	}
+	// .intro-header {
+	// 	display: none;
+	// }
+}
