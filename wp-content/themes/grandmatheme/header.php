@@ -57,5 +57,10 @@
 			Get started
 		</div>
 	</section>
-	<section class="main-container">
-		<nav><?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'container' => '' ) ); ?></nav>
+    <?php 
+    $args = array( 'posts_per_page' => 1, 'orderby' => 'rand', 'post_type' => 'tips' );
+    $rand_post = get_posts( $args );
+    $rand_url = $rand_post[0]->guid;
+     ?>
+	<section class="main-container" data-random="<?php echo $rand_url ?>">
+		<nav><?php dynamic_sidebar( 'home_left' ); ?></nav>

@@ -12,7 +12,12 @@ App.prototype.init = function() {
 	this.$.mainContainer = $('.main-container');
 	this.$.introHeader = $('.intro-header');
 	this.$.leftMenu = this.$.mainContainer.find('nav');
+	this.$.searchTitle = this.$.mainContainer.find('.menu-item-5 a');
+	this.$.randomTitle = this.$.mainContainer.find('.menu-item-37 a');
+	this.$.searchBox = this.$.mainContainer.find('nav form');
 	this.window = $(window);
+	
+	this.$.randomTitle.attr('href',this.$.mainContainer.attr('data-random'));	
 
 	this.initEvents();
 }
@@ -24,6 +29,16 @@ App.prototype.initEvents = function() {
 	this.window.on('scroll', function() {
 		that.updateStyle();
 	});
+
+	this.$.searchTitle.on('click', function(e) {
+		e.preventDefault();
+		that.$.searchBox.fadeToggle();
+	});	this.$.searchTitle.on('click', function(e) {
+		e.preventDefault();
+		that.$.searchBox.fadeToggle();
+	});
+
+
 }
 
 App.prototype.updateStyle = function() {

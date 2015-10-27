@@ -92,7 +92,7 @@ The good old pseudo element display inline block height 100% trick.
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-.icon_add-tip:before, .main-container nav .menu .menu-item.menu-item-8 a:before {
+.icon_add-tip:before, .main-container nav .menu .menu-item.menu-item-38 a:before {
   content: "\f101"; }
 
 .icon_arrow-down:before, .intro-header div.get-started:before {
@@ -119,7 +119,7 @@ The good old pseudo element display inline block height 100% trick.
 .icon_pie-ccoking:before {
   content: "\f109"; }
 
-.icon_random-tip:before, .main-container nav .menu .menu-item.menu-item-7 a:before {
+.icon_random-tip:before, .main-container nav .menu .menu-item.menu-item-37 a:before {
   content: "\f10a"; }
 
 .icon_search:before, .main-container nav .menu .menu-item.menu-item-5 a:before {
@@ -128,7 +128,7 @@ The good old pseudo element display inline block height 100% trick.
 .icon_share:before {
   content: "\f10c"; }
 
-.icon_top-tips:before, .main-container nav .menu .menu-item.menu-item-6 a:before {
+.icon_top-tips:before, .main-container nav .menu .menu-item.menu-item-36 a:before {
   content: "\f10d"; }
 
 /* FONTS */
@@ -201,7 +201,8 @@ The good old pseudo element display inline block height 100% trick.
         font-family: "Open Sans", sans-serif;
         font-weight: 300;
         text-transform: uppercase;
-        margin: 50px 0 50px 78px; }
+        margin: 30px 0 30px 78px;
+        display: inline-block; }
         .main-container nav .menu .menu-item a {
           color: #000;
           text-decoration: none;
@@ -228,6 +229,15 @@ The good old pseudo element display inline block height 100% trick.
         height: 88px;
         margin: 100px auto;
         overflow: hidden; }
+  .main-container form[role='search'] {
+    display: none; }
+    .main-container form[role='search'] input[type='text'] {
+      border: none;
+      background-color: #f0f0f0;
+      outline: none;
+      padding: 5px;
+      font-family: "Open Sans", sans-serif;
+      margin-left: 40px; }
 
 body.home .main-container .content {
   position: absolute;
@@ -283,7 +293,10 @@ body.home .main-container .content {
   body.home .main-container .content .tips {
     float: left;
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    display: table; }
+    body.home .main-container .content .tips .tips-row {
+      display: table-row; }
     body.home .main-container .content .tips .entry {
       box-sizing: border-box;
       box-shadow: 11px 11px 21px 0px rgba(0, 0, 0, 0.18);
@@ -291,7 +304,8 @@ body.home .main-container .content {
       width: 28%;
       margin-right: 5%;
       margin-bottom: 5%;
-      background-color: #fff; }
+      background-color: #fff;
+      display: table-cell; }
       body.home .main-container .content .tips .entry:nth-child(3n) {
         margin-right: 0; }
       body.home .main-container .content .tips .entry .img-container {
@@ -324,6 +338,9 @@ body.home .main-container .content {
         color: #7a7979;
         text-transform: uppercase;
         padding: 20px;
-        line-height: 1.5; }
+        line-height: 1.5;
+        text-decoration: none; }
+      body.home .main-container .content .tips .entry a {
+        text-decoration: none; }
 
 /*# sourceMappingURL=style.css.map */

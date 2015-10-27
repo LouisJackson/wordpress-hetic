@@ -1,4 +1,5 @@
 <?php 
+
 	get_header();
 
 	if (isset($_GET)){
@@ -75,7 +76,10 @@
 			}
 
 			$loop = new WP_Query( $args );
-			while ( $loop->have_posts() ) : $loop->the_post(); ?>
+			$i = 0;
+			while ( $loop->have_posts() ) : $loop->the_post();
+			
+			if (($i % 3) == 0): ?><div class="tips-row"><?php endif; ?>
 			<div class="entry">
 				<div class="img-container">
 			  		<div class="wrapper">
@@ -85,13 +89,15 @@
 			 		</div>
 			 	</div>
 
-	 			<h3>
-	  				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+	  			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+	  				<h3>
 	  					<?php the_title(); ?>
-	  				</a>
-				</h3>
-			</div>
-			<?php endwhile; ?>
+	  				</h3>
+	  			</a>
+	  		</div>
+			<?php if ((($i - 2) % 3) == 0): ?></div><?php endif; ?>
+			<?php $i++;
+			endwhile; ?>
 		</div>
 	</div>
 <?php

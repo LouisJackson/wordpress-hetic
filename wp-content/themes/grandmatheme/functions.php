@@ -10,10 +10,19 @@ add_action('admin_menu', 'remove_post_custom_fields');
 
 register_nav_menus();
 
-function register_my_menu() {
-  register_nav_menu('header-menu',__( 'Header Menu' ));
+function grandma_widgets_init() {
+
+  register_sidebar( array(
+    'name'          => 'Home left sidebar',
+    'id'            => 'home_left',
+    'before_widget' => '',
+    'after_widget'  => '',
+    'before_title'  => '',
+    'after_title'   => '',
+  ) );
+
 }
-add_action( 'init', 'register_my_menu' );
+add_action( 'widgets_init', 'grandma_widgets_init' );
 
 function create_tips() {
   register_post_type( 'tips',

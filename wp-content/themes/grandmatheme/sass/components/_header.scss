@@ -66,7 +66,8 @@
 				font-family: $open;
 				font-weight: 300;
 				text-transform: uppercase;
-				margin: 50px 0 50px 78px;
+				margin: 30px 0 30px 78px;
+				display: inline-block;
 				a {
 					color: $black;
 					text-decoration: none;
@@ -90,13 +91,13 @@
 				&.menu-item-5 a:before {
 					@extend .icon_search:before;
 				}				
-				&.menu-item-6 a:before {
+				&.menu-item-36 a:before {
 					@extend .icon_top-tips:before;
 				}				
-				&.menu-item-7 a:before {
+				&.menu-item-37 a:before {
 					@extend .icon_random-tip:before;
 				}				
-				&.menu-item-8 a:before {
+				&.menu-item-38 a:before {
 					@extend .icon_add-tip:before;
 				}
 			}
@@ -111,6 +112,19 @@
 				margin: 100px auto;
 				overflow: hidden;
 			}
+		}
+	}
+
+	form[role='search'] {
+		display: none;
+
+		input[type='text'] {
+			border: none;
+			background-color: $middleGray;
+			outline: none;
+			padding: 5px;
+			font-family:$open;
+			margin-left: 40px;
 		}
 	}
 }
