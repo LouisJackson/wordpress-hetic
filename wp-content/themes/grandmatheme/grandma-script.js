@@ -18,7 +18,6 @@ App.prototype.init = function() {
 }
 
 App.prototype.initEvents = function() {
-
 	var that = this;
 
 	this.window.on('scroll', function() {
