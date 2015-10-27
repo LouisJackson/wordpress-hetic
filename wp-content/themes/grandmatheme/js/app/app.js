@@ -28,9 +28,6 @@ App.prototype.initEvents = function() {
 	this.$.searchTitle.on('click', function(e) {
 		e.preventDefault();
 		that.$.searchBox.fadeToggle();
-	});	this.$.searchTitle.on('click', function(e) {
-		e.preventDefault();
-		that.$.searchBox.fadeToggle();
 	});
 
 

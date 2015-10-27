@@ -23,6 +23,7 @@ App.prototype.init = function() {
 }
 
 App.prototype.initEvents = function() {
+
 	var that = this;
 
 	this.window.on('scroll', function() {
@@ -30,9 +31,6 @@ App.prototype.initEvents = function() {
 	});
 
 	this.$.searchTitle.on('click', function(e) {
-		e.preventDefault();
-		that.$.searchBox.fadeToggle();
-	});	this.$.searchTitle.on('click', function(e) {
 		e.preventDefault();
 		that.$.searchBox.fadeToggle();
 	});
