@@ -104,7 +104,7 @@ The good old pseudo element display inline block height 100% trick.
 .icon_bucket-cleaning:before {
   content: "\f104"; }
 
-.icon_it-works:before {
+.icon_it-works:before, .post-wrapper .post-container .post-content .post-header .post-infos span.upvote-btn:before {
   content: "\f105"; }
 
 .icon_lamp-idea:before {
@@ -125,7 +125,7 @@ The good old pseudo element display inline block height 100% trick.
 .icon_search:before, .main-container nav .menu .menu-item.menu-item-5 a:before {
   content: "\f10b"; }
 
-.icon_share:before {
+.icon_share:before, .post-wrapper .post-container .post-content .post-header .post-infos span.share:before {
   content: "\f10c"; }
 
 .icon_top-tips:before, .main-container nav .menu .menu-item.menu-item-36 a:before {
@@ -342,5 +342,76 @@ body.home .main-container .content {
         text-decoration: none; }
       body.home .main-container .content .tips .entry a {
         text-decoration: none; }
+
+.post-wrapper {
+  margin-left: 240px;
+  height: 100%;
+  position: relative; }
+  .post-wrapper .post-container {
+    width: 90%;
+    max-width: 768px;
+    margin: auto;
+    max-height: 768px;
+    height: 90%;
+    background: #fff;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    box-shadow: 11px 11px 21px 0px rgba(0, 0, 0, 0.18); }
+    .post-wrapper .post-container .post-thumbnail {
+      float: left;
+      width: 40%;
+      height: 100%;
+      overflow: hidden; }
+      .post-wrapper .post-container .post-thumbnail img {
+        height: 100%; }
+    .post-wrapper .post-container .post-content {
+      float: left;
+      width: 60%;
+      overflow: auto; }
+      .post-wrapper .post-container .post-content .post-header {
+        background-color: #1c1528;
+        color: #fff;
+        padding: 40px;
+        font-size: 24px;
+        height: 20%; }
+        .post-wrapper .post-container .post-content .post-header h3 {
+          font-family: "Open Sans", sans-serif;
+          text-transform: uppercase; }
+        .post-wrapper .post-container .post-content .post-header .post-infos {
+          font-size: 12px;
+          color: #327580;
+          font-family: "Open Sans", sans-serif;
+          margin-top: 10px; }
+          .post-wrapper .post-container .post-content .post-header .post-infos span.upvote-btn {
+            display: inline-block;
+            margin-right: 20px;
+            cursor: pointer; }
+            .post-wrapper .post-container .post-content .post-header .post-infos span.upvote-btn:before {
+              font-family: 'icons';
+              display: inline-block;
+              margin-right: 5px; }
+            .post-wrapper .post-container .post-content .post-header .post-infos span.upvote-btn span {
+              font-weight: 700; }
+            .post-wrapper .post-container .post-content .post-header .post-infos span.upvote-btn:hover {
+              color: #a4e2ea; }
+          .post-wrapper .post-container .post-content .post-header .post-infos span.share {
+            display: inline-block;
+            cursor: pointer; }
+            .post-wrapper .post-container .post-content .post-header .post-infos span.share:before {
+              font-family: 'icons';
+              display: inline-block;
+              margin-right: 5px; }
+            .post-wrapper .post-container .post-content .post-header .post-infos span.share:hover {
+              color: #a4e2ea; }
+      .post-wrapper .post-container .post-content .entry-content {
+        font-family: "Open Sans", sans-serif;
+        overflow-y: scroll;
+        height: 80%;
+        padding: 40px;
+        font-size: 14px;
+        line-height: 21px; }
 
 /*# sourceMappingURL=style.css.map */

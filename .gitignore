@@ -1,4 +1,5 @@
 wp-config.php
 npm-debug.log
 wp-content/themes/grandmatheme/grunt/node_modules/
+wp-content/themes/grandmatheme/grunt/.sass-cache/
 wp-content/themes/grandmatheme/inc/
