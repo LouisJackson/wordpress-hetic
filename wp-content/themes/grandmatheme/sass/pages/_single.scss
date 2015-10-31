@@ -56,7 +56,7 @@
 						span {
 							font-weight: 700;
 						}
-						&:hover {
+						&:hover, &.active {
 							color: $textBlue;
 						}
 					}

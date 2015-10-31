@@ -3,6 +3,7 @@
 	height: 100%;
 	background-color: $lightBlue;
 	position: relative;
+	display: none;
 	div.title {
 		text-align: center;
 		top: 0;bottom: 0;left: 0;right: 0;
@@ -58,6 +59,7 @@
 		height: 100%;
 		background-color: $lightGray;
 		float: left;
+		position: fixed;
 		.menu {
 			width: 100%;
 			overflow: hidden;
@@ -102,29 +104,28 @@
 				}
 			}
 			.menu-item-4 {
-				text-indent: -999999px;
-				white-space: nowrap;
-				background-image: url('img/logo.png');
 				background-size: cover;
 				background-repeat: no-repeat;
 				width: 218px;
 				height: 88px;
-				margin: 100px auto;
+				margin: 100px auto 100px 10px;
 				overflow: hidden;
 			}
 		}
-	}
+		form[role='search'] {
+			display: none;
 
-	form[role='search'] {
-		display: none;
-
-		input[type='text'] {
-			border: none;
-			background-color: $middleGray;
-			outline: none;
-			padding: 5px;
-			font-family:$open;
-			margin-left: 40px;
+			input[type='text'] {
+				border: none;
+				background-color: $middleGray;
+				outline: none;
+				padding: 5px;
+				font-family:$open;
+				margin-left: 40px;
+			}
+			input[type='submit'] {
+				display: none;
+			}
 		}
 	}
 }

@@ -2,7 +2,7 @@
 	get_header();
 ?>
 <div class="content clearfix">
-	<div><span class="active">Results for</span><li class="title"><?= the_search_query(); ?></li></div>
+	<div class="result-query"><span class="active">Results for</span><li class="title"><?= the_search_query(); ?></li></div>
 	<div class="tips">
 		<?php 
 		$args = array('post_type' => 'tips', 'posts_per_page' => 10, 's' => get_search_query());

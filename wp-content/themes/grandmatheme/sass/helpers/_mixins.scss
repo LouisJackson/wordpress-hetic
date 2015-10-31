@@ -44,6 +44,6 @@ The good old pseudo element display inline block height 100% trick.
 	box-sizing: border-box;
 }
 
-.fixed {
+body.home .main-container .fixed {
   position: fixed;
 }

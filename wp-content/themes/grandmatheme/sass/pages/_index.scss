@@ -1,5 +1,11 @@
 body.home {
+	.intro-header {
+		display: block;
+	}
 	.main-container {
+		nav {
+			position: static;
+		}
 		.content {
 			position: absolute;
 			left: 240px;
@@ -42,6 +48,9 @@ body.home {
 							color: $white;
 						}
 					}
+				}
+				.cat-item-all {
+					font-weight: 700;
 				}
 			}
 			.ordering {

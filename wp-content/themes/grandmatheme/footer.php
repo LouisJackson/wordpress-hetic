@@ -12,6 +12,7 @@
 			    },
 			    success: function(data){
 			    	$('.likes-count').html(data);
+			    	$('.upvote-btn').addClass('active');
 			    }
 			});
 		});

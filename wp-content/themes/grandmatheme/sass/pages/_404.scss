@@ -1,0 +1,52 @@
+body.error404 {
+	.container {
+		margin-left: 300px;
+		position: relative;
+		height: 100%;
+		width: calc(100% - 300px);
+		.incenter {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+			height: 400px;
+			width: 550px;
+		}
+		h3 {
+			font-family: $pacifico;
+			font-size: 180px;
+			color: $textBlue;
+		}
+		p {
+			font-family: $open;
+			font-weight: 300;
+			font-size: 18px;
+			font-color: $darkBlue;
+			line-height: 150px;
+		}
+		form {
+			text-align:center;
+			input[type='text'] {
+				background-color: $textBlue;
+				border: none;
+				color: $darkerBlue;
+				font-family: $open;
+				font-size: 14px;
+				padding: 10px;
+				outline: none;
+			}
+
+			input[type='submit'] {
+				background-image: url('icons/search.svg');
+				background-size: cover;
+				width: 20px;
+				height: 20px;
+				border: none;
+				background-color: rgba(255,255,255,0);
+				margin-right: 20px;
+			}
+		}
+	}
+}

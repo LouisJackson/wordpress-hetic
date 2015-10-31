@@ -69,7 +69,7 @@ body, html {
 The good old pseudo element display inline block height 100% trick.
 
 */
-.fixed {
+body.home .main-container .fixed {
   position: fixed; }
 
 @font-face {
@@ -142,7 +142,8 @@ The good old pseudo element display inline block height 100% trick.
   width: 100%;
   height: 100%;
   background-color: #52cedf;
-  position: relative; }
+  position: relative;
+  display: none; }
   .intro-header div.title {
     text-align: center;
     top: 0;
@@ -192,7 +193,8 @@ The good old pseudo element display inline block height 100% trick.
     width: 240px;
     height: 100%;
     background-color: #fcfbfb;
-    float: left; }
+    float: left;
+    position: fixed; }
     .main-container nav .menu {
       width: 100%;
       overflow: hidden; }
@@ -220,25 +222,28 @@ The good old pseudo element display inline block height 100% trick.
             .main-container nav .menu .menu-item a:hover:before {
               color: #52cedf; }
       .main-container nav .menu .menu-item-4 {
-        text-indent: -999999px;
-        white-space: nowrap;
-        background-image: url("img/logo.png");
         background-size: cover;
         background-repeat: no-repeat;
         width: 218px;
         height: 88px;
-        margin: 100px auto;
+        margin: 100px auto 100px 10px;
         overflow: hidden; }
-  .main-container form[role='search'] {
-    display: none; }
-    .main-container form[role='search'] input[type='text'] {
-      border: none;
-      background-color: #f0f0f0;
-      outline: none;
-      padding: 5px;
-      font-family: "Open Sans", sans-serif;
-      margin-left: 40px; }
+    .main-container nav form[role='search'] {
+      display: none; }
+      .main-container nav form[role='search'] input[type='text'] {
+        border: none;
+        background-color: #f0f0f0;
+        outline: none;
+        padding: 5px;
+        font-family: "Open Sans", sans-serif;
+        margin-left: 40px; }
+      .main-container nav form[role='search'] input[type='submit'] {
+        display: none; }
 
+body.home .intro-header {
+  display: block; }
+body.home .main-container nav {
+  position: static; }
 body.home .main-container .content {
   position: absolute;
   left: 240px;
@@ -274,6 +279,8 @@ body.home .main-container .content {
           font-weight: 700; }
         body.home .main-container .content .categories .cat-item a:hover, body.home .main-container .content .categories .cat-item-all a:hover {
           color: #fff; }
+    body.home .main-container .content .categories .cat-item-all {
+      font-weight: 700; }
   body.home .main-container .content .ordering {
     width: 30%; }
     body.home .main-container .content .ordering .title {
@@ -395,7 +402,7 @@ body.home .main-container .content {
               margin-right: 5px; }
             .post-wrapper .post-container .post-content .post-header .post-infos span.upvote-btn span {
               font-weight: 700; }
-            .post-wrapper .post-container .post-content .post-header .post-infos span.upvote-btn:hover {
+            .post-wrapper .post-container .post-content .post-header .post-infos span.upvote-btn:hover, .post-wrapper .post-container .post-content .post-header .post-infos span.upvote-btn.active {
               color: #a4e2ea; }
           .post-wrapper .post-container .post-content .post-header .post-infos span.share {
             display: inline-block;
@@ -413,5 +420,243 @@ body.home .main-container .content {
         padding: 40px;
         font-size: 14px;
         line-height: 21px; }
+
+body.search .main-container .content {
+  position: absolute;
+  left: 240px;
+  background-color: #52cedf;
+  padding-left: 60px;
+  width: calc(100% - 300px); }
+  body.search .main-container .content .categories, body.search .main-container .content .ordering {
+    padding-top: 30px;
+    float: left;
+    width: 100%;
+    height: 200px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    text-transform: uppercase; }
+    body.search .main-container .content .categories a, body.search .main-container .content .ordering a {
+      text-decoration: none; }
+    body.search .main-container .content .categories li, body.search .main-container .content .ordering li {
+      list-style: none;
+      display: inline-block;
+      padding: 5px 20px 5px 0; }
+  body.search .main-container .content .result-query {
+    width: 66%;
+    box-sizing: border-box;
+    padding-right: 5%;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 30px 0; }
+    body.search .main-container .content .result-query .title {
+      color: #327580;
+      list-style: none;
+      display: inline-block;
+      margin-left: 5px; }
+  body.search .main-container .content .tips {
+    float: left;
+    width: 100%;
+    height: 100%;
+    display: table; }
+    body.search .main-container .content .tips .tips-row {
+      display: table-row; }
+    body.search .main-container .content .tips .entry {
+      box-sizing: border-box;
+      box-shadow: 11px 11px 21px 0px rgba(0, 0, 0, 0.18);
+      float: left;
+      width: 28%;
+      margin-right: 5%;
+      margin-bottom: 5%;
+      background-color: #fff;
+      display: table-cell; }
+      body.search .main-container .content .tips .entry:nth-child(3n) {
+        margin-right: 0; }
+      body.search .main-container .content .tips .entry .img-container {
+        width: 100%;
+        /* whatever width you want */
+        display: inline-block;
+        position: relative;
+        overflow: hidden; }
+      body.search .main-container .content .tips .entry .img-container:after {
+        padding-top: 70%;
+        /* 16:9 ratio */
+        display: block;
+        content: ''; }
+      body.search .main-container .content .tips .entry .wrapper {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        /* fill parent */
+        background-color: deepskyblue;
+        /* let's see it! */
+        color: white; }
+      body.search .main-container .content .tips .entry img {
+        width: 100%;
+        height: auto; }
+      body.search .main-container .content .tips .entry h3 {
+        font-family: "Open Sans", sans-serif;
+        font-size: 14px;
+        color: #7a7979;
+        text-transform: uppercase;
+        padding: 20px;
+        line-height: 1.5;
+        text-decoration: none; }
+      body.search .main-container .content .tips .entry a {
+        text-decoration: none; }
+
+body.category .intro-header {
+  display: none; }
+body.category .main-container nav {
+  position: fixed; }
+body.category .main-container .content {
+  position: absolute;
+  left: 240px;
+  background-color: #52cedf;
+  padding-left: 60px; }
+  body.category .main-container .content .categories, body.category .main-container .content .ordering {
+    padding-top: 30px;
+    float: left;
+    width: 70%;
+    height: 200px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    text-transform: uppercase; }
+    body.category .main-container .content .categories a, body.category .main-container .content .ordering a {
+      text-decoration: none; }
+    body.category .main-container .content .categories li, body.category .main-container .content .ordering li {
+      list-style: none;
+      display: inline-block;
+      padding: 5px 20px 5px 0; }
+  body.category .main-container .content .categories {
+    width: 66%;
+    box-sizing: border-box;
+    padding-right: 5%; }
+    body.category .main-container .content .categories .title {
+      color: #fff;
+      font-weight: 700;
+      display: block; }
+    body.category .main-container .content .categories .cat-item, body.category .main-container .content .categories .cat-item-all {
+      font-weight: 300; }
+      body.category .main-container .content .categories .cat-item a, body.category .main-container .content .categories .cat-item-all a {
+        color: #327580; }
+        body.category .main-container .content .categories .cat-item a.active, body.category .main-container .content .categories .cat-item-all a.active {
+          font-weight: 700; }
+        body.category .main-container .content .categories .cat-item a:hover, body.category .main-container .content .categories .cat-item-all a:hover {
+          color: #fff; }
+  body.category .main-container .content .ordering {
+    width: 30%; }
+    body.category .main-container .content .ordering .title {
+      color: #fff;
+      font-weight: 700;
+      display: inline-block;
+      padding: 5px 20px 5px 0; }
+    body.category .main-container .content .ordering a {
+      color: #327580;
+      font-weight: 300;
+      display: inline-block;
+      padding: 5px 20px 5px 0; }
+      body.category .main-container .content .ordering a.active {
+        font-weight: 700; }
+      body.category .main-container .content .ordering a:hover {
+        color: #fff; }
+  body.category .main-container .content .tips {
+    float: left;
+    width: 100%;
+    height: 100%;
+    display: table; }
+    body.category .main-container .content .tips .tips-row {
+      display: table-row; }
+    body.category .main-container .content .tips .entry {
+      box-sizing: border-box;
+      box-shadow: 11px 11px 21px 0px rgba(0, 0, 0, 0.18);
+      float: left;
+      width: 28%;
+      margin-right: 5%;
+      margin-bottom: 5%;
+      background-color: #fff;
+      display: table-cell; }
+      body.category .main-container .content .tips .entry:nth-child(3n) {
+        margin-right: 0; }
+      body.category .main-container .content .tips .entry .img-container {
+        width: 100%;
+        /* whatever width you want */
+        display: inline-block;
+        position: relative;
+        overflow: hidden; }
+      body.category .main-container .content .tips .entry .img-container:after {
+        padding-top: 70%;
+        /* 16:9 ratio */
+        display: block;
+        content: ''; }
+      body.category .main-container .content .tips .entry .wrapper {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        /* fill parent */
+        background-color: deepskyblue;
+        /* let's see it! */
+        color: white; }
+      body.category .main-container .content .tips .entry img {
+        width: 100%;
+        height: auto; }
+      body.category .main-container .content .tips .entry h3 {
+        font-family: "Open Sans", sans-serif;
+        font-size: 14px;
+        color: #7a7979;
+        text-transform: uppercase;
+        padding: 20px;
+        line-height: 1.5;
+        text-decoration: none; }
+      body.category .main-container .content .tips .entry a {
+        text-decoration: none; }
+
+body.error404 .container {
+  margin-left: 300px;
+  position: relative;
+  height: 100%;
+  width: calc(100% - 300px); }
+  body.error404 .container .incenter {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 400px;
+    width: 550px; }
+  body.error404 .container h3 {
+    font-family: "pacificoregular", sans-serif;
+    font-size: 180px;
+    color: #a4e2ea; }
+  body.error404 .container p {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    font-color: #327580;
+    line-height: 150px; }
+  body.error404 .container form {
+    text-align: center; }
+    body.error404 .container form input[type='text'] {
+      background-color: #a4e2ea;
+      border: none;
+      color: #1c1528;
+      font-family: "Open Sans", sans-serif;
+      font-size: 14px;
+      padding: 10px;
+      outline: none; }
+    body.error404 .container form input[type='submit'] {
+      background-image: url("icons/search.svg");
+      background-size: cover;
+      width: 20px;
+      height: 20px;
+      border: none;
+      background-color: rgba(255, 255, 255, 0);
+      margin-right: 20px; }
 
 /*# sourceMappingURL=style.css.map */
