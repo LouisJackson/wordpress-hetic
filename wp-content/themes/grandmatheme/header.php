@@ -58,9 +58,11 @@
 		</div>
 	</section>
     <?php 
-    $args = array( 'posts_per_page' => 1, 'orderby' => 'rand', 'post_type' => 'tips' );
-    $rand_post = get_posts( $args );
-    $rand_url = $rand_post[0]->guid;
+        $active_post = array(get_the_id());
+
+        $args = array('posts_per_page' => 1, 'orderby' => 'rand', 'post_type' => 'tips', 'exclude' => $active_post);
+        $rand_post = get_posts($args);
+        $rand_url = $rand_post[0]->guid;
      ?>
 	<section class="main-container" data-random="<?php echo $rand_url ?>">
 		<nav><?php dynamic_sidebar( 'home_left' ); ?></nav>
