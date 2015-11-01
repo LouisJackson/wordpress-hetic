@@ -16,7 +16,11 @@
 					<span class="upvote-btn" data-tipId="<?= get_the_ID(); ?>">IT WORKS ! (<span class="likes-count"><?php the_field('likes'); ?></span>)</span><span class="share"> SHARE</span>
 				</p>
 			</div>
-			<div class="entry-content"><?php the_content(); ?></div>
+			<div class="entry-content">
+				<?php foreach (get_field('etapes') as $step): ?>
+					<p><?= $step['steps'] ?></p>
+				<?php endforeach; ?>
+			</div>
 		</div>
 	</div>
 </div>

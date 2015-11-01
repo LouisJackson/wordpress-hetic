@@ -1,0 +1,46 @@
+body.page {
+	.post-wrapper {
+		margin-left: 240px;
+		height: 100%;
+		position: relative;
+		.post-container {
+			width: 90%;
+			max-width: 768px;
+			margin: auto;
+			max-height: 768px;
+			height: 90%;
+			background: $white;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			position: absolute;
+			box-shadow: 11px 11px 21px 0px rgba(0,0,0,0.18);
+			.post-content  {
+				float: left;
+				width: 100%;
+				overflow:auto;
+				.post-header {
+					background-color: $darkerBlue;
+					color: $white;
+					padding: 40px;
+					font-size: 24px;
+					height: 20%;
+					h3 {
+						font-family: $open;
+						text-transform: uppercase;
+						text-align: center;
+					}
+				}
+				.entry-content {
+					font-family: $open;
+					overflow-y: scroll;
+					height: 80%;
+					padding: 40px;
+					font-size: 14px;
+					line-height: 21px;;
+				}
+			}
+		}
+	}
+}

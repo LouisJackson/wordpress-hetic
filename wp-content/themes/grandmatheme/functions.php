@@ -33,7 +33,6 @@ function create_tips() {
 		'title',
 		'author',
 		'excerpt',
-		'editor',
 		'thumbnail',
 		'revisions'
 	   )
