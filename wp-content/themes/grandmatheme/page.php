@@ -22,7 +22,7 @@
 											'post_type'		=> 'tips',
 											'post_status'		=> 'publish'
  										),
-										'fields' => array('name','e-mail','etapes','the_taxonomy'),
+										'fields' => array('the_taxonomy','name','e-mail','etapes'),
 										'submit_value'		=> 'Submit'
 									)); ?>
 							</div>

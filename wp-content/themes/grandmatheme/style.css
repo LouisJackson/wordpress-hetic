@@ -441,24 +441,57 @@ body.page .post-wrapper {
     body.page .post-wrapper .post-container .post-content {
       float: left;
       width: 100%;
-      overflow: auto; }
+      height: 100%;
+      overflow: visible; }
       body.page .post-wrapper .post-container .post-content .post-header {
         background-color: #1c1528;
         color: #fff;
         padding: 40px;
         font-size: 24px;
-        height: 20%; }
+        height: 20px; }
         body.page .post-wrapper .post-container .post-content .post-header h3 {
           font-family: "Open Sans", sans-serif;
           text-transform: uppercase;
           text-align: center; }
       body.page .post-wrapper .post-container .post-content .entry-content {
+        padding-top: 40px;
         font-family: "Open Sans", sans-serif;
         overflow-y: scroll;
-        height: 80%;
+        height: 100%;
         padding: 40px;
         font-size: 14px;
-        line-height: 21px; }
+        line-height: 21px;
+        box-sizing: border-box; }
+        body.page .post-wrapper .post-container .post-content .entry-content .acf-form .acf-label {
+          float: left;
+          width: 100px; }
+          body.page .post-wrapper .post-container .post-content .entry-content .acf-form .acf-label label {
+            font-family: "Open Sans", sans-serif;
+            font-weight: 300;
+            font-size: 16px; }
+        body.page .post-wrapper .post-container .post-content .entry-content .acf-form .acf-input input {
+          border: none;
+          background: #d8f1f4;
+          font-family: "Open Sans", sans-serif;
+          font-weight: 100; }
+        body.page .post-wrapper .post-container .post-content .entry-content .acf-form .acf-form-submit {
+          text-align: center; }
+          body.page .post-wrapper .post-container .post-content .entry-content .acf-form .acf-form-submit input[type='submit'] {
+            border: none;
+            background-color: transparent;
+            font-family: "pacificoregular", sans-serif;
+            font-size: 20px;
+            cursor: pointer;
+            color: #327580; }
+            body.page .post-wrapper .post-container .post-content .entry-content .acf-form .acf-form-submit input[type='submit']:hover {
+              color: #1c1528; }
+        body.page .post-wrapper .post-container .post-content .entry-content .acf-form .acf-repeater-add-row {
+          background-color: #327580;
+          font-family: "Open Sans", sans-serif;
+          font-weight: 600;
+          border: none; }
+          body.page .post-wrapper .post-container .post-content .entry-content .acf-form .acf-repeater-add-row:hover {
+            background-color: #1c1528; }
 
 body.search .main-container .content {
   position: absolute;

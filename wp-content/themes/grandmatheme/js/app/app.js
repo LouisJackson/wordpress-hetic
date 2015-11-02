@@ -14,11 +14,15 @@ App.prototype.init = function() {
 	this.$.searchBox = this.$.mainContainer.find('nav form');
 	this.$.categoryMenu = this.$.mainContainer.find('.categories .title');
 	this.$.categories = this.$.mainContainer.find('.categories li a');
+	this.$.postContainer = this.$.mainContainer.find('.post-container');
+	this.$.postHeader = this.$.mainContainer.find('.post-container .post-header');
+	this.$.postContent = this.$.mainContainer.find('.post-container .entry-content');
 	this.window = $(window);
 	
 	this.$.randomTitle.attr('href',this.$.mainContainer.attr('data-random'));	
 
 	this.initEvents();
+	this.resizeTip();
 
 	if (this.$.body.hasClass('category')) {
 		this.initCat();
@@ -44,6 +48,10 @@ App.prototype.initEvents = function() {
 		var event = this;
 		that.getAjax(event);
 	});
+
+	$(window).on('resize', function(){
+		that.resizeTip();
+	})
 
 
 }
@@ -85,6 +93,16 @@ App.prototype.getAjax = function(event) {
 	    	$('.upvote-btn').addClass('active');
 	    }
 	});
+}
+
+App.prototype.resizeTip = function() {
+	var containerHeight = this.$.postContainer.height();
+	var titleHeight = this.$.postHeader.outerHeight();
+	var newHeight = containerHeight-titleHeight;
+
+	console.log(containerHeight, titleHeight);
+	console.log(newHeight);
+	this.$.postContent.outerHeight(newHeight);
 }
 
 var app = new App();

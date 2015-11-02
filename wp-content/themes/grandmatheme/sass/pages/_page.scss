@@ -19,13 +19,14 @@ body.page {
 			.post-content  {
 				float: left;
 				width: 100%;
-				overflow:auto;
+				height: 100%;
+				overflow:visible;
 				.post-header {
 					background-color: $darkerBlue;
 					color: $white;
 					padding: 40px;
 					font-size: 24px;
-					height: 20%;
+					height: 20px;
 					h3 {
 						font-family: $open;
 						text-transform: uppercase;
@@ -33,12 +34,56 @@ body.page {
 					}
 				}
 				.entry-content {
+					padding-top: 40px;
 					font-family: $open;
 					overflow-y: scroll;
-					height: 80%;
+					height: 100%;
 					padding: 40px;
 					font-size: 14px;
-					line-height: 21px;;
+					line-height: 21px;
+					box-sizing: border-box;
+					.acf-form {
+						.acf-label {
+							float: left;
+							width: 100px;
+							label {
+								font-family: $open;
+								font-weight: 300;
+								font-size: 16px;
+							}
+						}
+						.acf-input {
+							input {
+								border: none;
+								background: $lighterBlue;
+								font-family: $open;
+								font-weight: 100;
+							}
+						}
+						.acf-form-submit {
+							text-align: center;
+							input[type='submit'] {
+								border: none;
+								background-color: transparent;
+								font-family: $pacifico;
+								font-size: 20px;
+								cursor: pointer;
+								color: $darkBlue;
+								&:hover {
+									color: $darkerBlue;
+								}
+							}
+						}
+						.acf-repeater-add-row {
+							background-color: $darkBlue;
+							font-family: $open;
+							font-weight: 600;
+							border: none;
+							&:hover {
+								background-color: $darkerBlue;
+							}
+						}
+					}
 				}
 			}
 		}

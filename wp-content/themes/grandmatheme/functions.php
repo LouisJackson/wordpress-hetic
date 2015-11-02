@@ -42,4 +42,15 @@ function create_tips() {
 
 add_action('init', 'create_tips');
 
+add_filter( 'acf/get_valid_field', 'change_input_labels');
+function change_input_labels($field) {
+    
+  if($field['name'] == '_post_title') {
+    $field['label'] = 'How to';
+  }
+    
+  return $field;
+    
+}
+
 ?>
