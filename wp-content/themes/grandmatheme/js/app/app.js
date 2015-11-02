@@ -40,6 +40,11 @@ App.prototype.initEvents = function() {
 		that.$.searchBox.fadeToggle();
 	});
 
+	$('.upvote-btn').on('click', function(){
+		var event = this;
+		that.getAjax(event);
+	});
+
 
 }
 
@@ -64,6 +69,22 @@ App.prototype.initCat = function() {
 			categories[i].tag.addClass('active');
 		}
 	};
+}
+
+App.prototype.getAjax = function(event) {
+	var that = event;
+
+	$.ajax({
+	    type: 'post',
+		url: 'http://'+ document.domain +'/wp-content/themes/grandmatheme/update-likes.php',
+	    data: {
+	    	tipId: $(that).attr('data-tipId')
+	    },
+	    success: function(data){
+	    	$('.likes-count').html(data);
+	    	$('.upvote-btn').addClass('active');
+	    }
+	});
 }
 
 var app = new App();
