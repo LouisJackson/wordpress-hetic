@@ -253,7 +253,7 @@ body.home .main-container .content {
     padding-top: 30px;
     float: left;
     width: 70%;
-    height: 200px;
+    height: 115px;
     font-family: "Open Sans", sans-serif;
     font-size: 14px;
     text-transform: uppercase; }
@@ -286,13 +286,11 @@ body.home .main-container .content {
     body.home .main-container .content .ordering .title {
       color: #fff;
       font-weight: 700;
-      display: inline-block;
-      padding: 5px 20px 5px 0; }
+      display: block; }
     body.home .main-container .content .ordering a {
       color: #327580;
       font-weight: 300;
-      display: inline-block;
-      padding: 5px 20px 5px 0; }
+      display: inline-block; }
       body.home .main-container .content .ordering a.active {
         font-weight: 700; }
       body.home .main-container .content .ordering a:hover {
@@ -593,7 +591,7 @@ body.category .main-container .content {
     padding-top: 30px;
     float: left;
     width: 70%;
-    height: 200px;
+    height: 115px;
     font-family: "Open Sans", sans-serif;
     font-size: 14px;
     text-transform: uppercase; }
@@ -619,18 +617,18 @@ body.category .main-container .content {
           font-weight: 700; }
         body.category .main-container .content .categories .cat-item a:hover, body.category .main-container .content .categories .cat-item-all a:hover {
           color: #fff; }
+    body.category .main-container .content .categories .cat-item-all {
+      font-weight: 300; }
   body.category .main-container .content .ordering {
     width: 30%; }
     body.category .main-container .content .ordering .title {
       color: #fff;
       font-weight: 700;
-      display: inline-block;
-      padding: 5px 20px 5px 0; }
+      display: block; }
     body.category .main-container .content .ordering a {
       color: #327580;
       font-weight: 300;
-      display: inline-block;
-      padding: 5px 20px 5px 0; }
+      display: inline-block; }
       body.category .main-container .content .ordering a.active {
         font-weight: 700; }
       body.category .main-container .content .ordering a:hover {

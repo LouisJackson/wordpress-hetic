@@ -35,7 +35,6 @@ App.prototype.init = function() {
 }
 
 App.prototype.initEvents = function() {
-
 	var that = this;
 
 	if (this.$.home.length > 0) {
@@ -47,6 +46,11 @@ App.prototype.initEvents = function() {
 	this.$.searchTitle.on('click', function(e) {
 		e.preventDefault();
 		that.$.searchBox.fadeToggle();
+	});
+
+	this.$.categoryMenu.on('click', function(e){
+		e.preventDefault();
+		$('.categories').slideDown();
 	});
 
 	$('.upvote-btn').on('click', function(){
