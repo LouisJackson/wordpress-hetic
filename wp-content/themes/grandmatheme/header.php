@@ -58,6 +58,7 @@
 		</div>
 	</section>
     <?php 
+    
         $active_post = array(get_the_id());
 
         $args = array('posts_per_page' => 1, 'orderby' => 'rand', 'post_type' => 'tips', 'exclude' => $active_post);
