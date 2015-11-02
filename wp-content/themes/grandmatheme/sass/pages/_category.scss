@@ -15,7 +15,7 @@ body.category {
 				padding-top: 30px;
 				float: left;
 				width: 70%;
-				height: 200px;
+				height: 115px;
 				font-family: $open;
 				font-size: 14px;
 				text-transform: uppercase;
@@ -49,20 +49,22 @@ body.category {
 						}
 					}
 				}
+				.cat-item-all {
+					font-weight: 300;
+				}
 			}
 			.ordering {
 				width: 30%;
 				.title {
 					color: $white;
 					font-weight: 700;
-					display: inline-block;
-					padding: 5px 20px 5px 0;
+					display: block;
 				}
 				a {
 					color: $darkBlue;
 					font-weight: 300;
 					display: inline-block;
-					padding: 5px 20px 5px 0;
+
 					&.active {
 						font-weight: 700;
 					}

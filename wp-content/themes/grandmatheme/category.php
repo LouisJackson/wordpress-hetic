@@ -51,10 +51,10 @@
 		 ?> 
 		</div>
 		<div class="ordering">
-			<span class="title">Order By</span>
-			<a href="?order=default" class="<?= ($order == '') ? 'active' : ''; ?>">Recent</a>
-			<a href="?order=reverse" class="<?= ($order == 'reverse') ? 'active' : ''; ?>">Ancient</a>
-			<a href="?order=likes" class="<?= ($order == 'likes') ? 'active' : ''; ?>">Like</a>
+			<li class="title">Order By</span>
+			<li class="cat-item"><a href="?order=default" class="<?= ($order == '') ? 'active' : ''; ?>">Recent</a></li>
+			<li class="cat-item"><a href="?order=reverse" class="<?= ($order == 'reverse') ? 'active' : ''; ?>">Ancient</a></li>
+			<li class="cat-item"><a href="?order=likes" class="<?= ($order == 'likes') ? 'active' : ''; ?>">Like</a></li>
 		</div>
 		<div class="tips">
 			<?php 
