@@ -5,6 +5,7 @@
 		$queryIp = $GLOBALS['wpdb']->get_col("SELECT * FROM ip_likes WHERE post_id = '". get_the_ID() ."' AND ip_address = '". $_SERVER['REMOTE_ADDR'] ."'");
 		return !empty($queryIp);
 	}
+	
 
 	if (have_posts()):
 		while (have_posts()):
