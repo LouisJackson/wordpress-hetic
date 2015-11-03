@@ -1,40 +1,56 @@
-function App() {
+var App = function(){
 	this.init();
-}
+};
 
 App.prototype.init = function() {
 	this.$ = {};
-	this.$.mainContainer = $('.main-container');
-	this.$.introHeader = $('.intro-header');
-	this.$.home = $('body.home');
-	this.$.body = $('body');
-	this.$.leftMenu = this.$.mainContainer.find('nav');
-	this.$.searchTitle = this.$.mainContainer.find('.menu-item-5 a');
-	this.$.randomTitle = this.$.mainContainer.find('.menu-item-37 a');
-	this.$.searchBox = this.$.mainContainer.find('nav form');
-	this.$.categoryMenu = this.$.mainContainer.find('.categories .title');
-	this.$.categories = this.$.mainContainer.find('.categories li a');
-	this.$.postContainer = this.$.mainContainer.find('.post-container');
-	this.$.postHeader = this.$.mainContainer.find('.post-container .post-header');
-	this.$.postContent = this.$.mainContainer.find('.post-container .entry-content');
-	this.$.posts = this.$.mainContainer.find('.tips .entry');
-	this.$.postsRows = this.$.mainContainer.find('.tips .tips-row');
-	this.$.menuTitle = this.$.mainContainer.find('.title');
-	this.window = $(window);
+
+	this.$.mainContainer 	= $('.main-container');
+	this.$.introHeader 	 	= $('.intro-header');
+	this.$.backgroundImages = this.$.introHeader.find('.background div');
+	this.$.home 	 	 	= $('body.home');
+	this.$.body 	 	 	= $('body');
+	this.$.leftMenu 	 	= this.$.mainContainer.find('nav');
+	this.$.searchTitle	 	= this.$.mainContainer.find('.menu-item-5 a');
+	this.$.randomTitle 	 	= this.$.mainContainer.find('.menu-item-37 a');
+	this.$.searchBox 	 	= this.$.mainContainer.find('nav form');
+	this.$.categoryMenu  	= this.$.mainContainer.find('.categories .title');
+	this.$.categories 	 	= this.$.mainContainer.find('.categories li a');
+	this.$.postContainer 	= this.$.mainContainer.find('.post-container');
+	this.$.postHeader 	 	= this.$.mainContainer.find('.post-container .post-header');
+	this.$.postContent 	 	= this.$.mainContainer.find('.post-container .entry-content');
+	this.$.posts 	 	 	= this.$.mainContainer.find('.tips .entry');
+	this.$.postsRows 	 	= this.$.mainContainer.find('.tips .tips-row');
+	this.$.upvoteBtn 	 	= this.$.mainContainer.find('.upvote-btn');
+	this.$.likesCount 	 	= this.$.mainContainer.find('.likes-count');
+	this.$.menuTitle        = this.$.mainContainer.find('.title');
+	this.window 	 	 	= $(window);
+
+	this.animationId;
 	
 	this.$.randomTitle.attr('href',this.$.mainContainer.attr('data-random'));	
-	this.$.postsRows.hide();
 	this.initEvents();
 	this.resizeTip();
+	this.randomizeIntro();
 	//this.initPosts();
 
 	if (this.$.body.hasClass('category')) {
 		this.initCat();
 	}
-}
+
+	this.$.body.show();
+};
 
 App.prototype.initEvents = function() {
 	var that = this;
+
+	/*if (Cookies.get('visited')){
+		this.removeIntro();
+	}
+
+	else {
+		Cookies.set('visited', true, {expires: 7});
+	}*/
 
 	if (this.$.home.length > 0) {
 		this.window.on('scroll', function() {
@@ -47,40 +63,42 @@ App.prototype.initEvents = function() {
 		that.$.searchBox.fadeToggle();
 	});
 
-	this.$.categoryMenu.on('click', function(e){
-		e.preventDefault();
-		$('.categories').slideDown();
-	});
-
-	$('.upvote-btn').on('click', function(){
+	this.$.upvoteBtn.on('click', function(){
 		var event = this;
 		that.getAjax(event);
 	});
 
-	$(window).on('resize', function(){
+	this.window.on('resize', function(){
 		that.resizeTip();
-	})
+		cancelAnimationFrame(that.animationId);
+		that.randomizeIntro();
+	});
 
-	$(window).on('scroll', function() {
+	this.window.on('scroll', function() {
 		that.initPosts();
-	})
+	});
 
 	this.$.menuTitle.on('click', function() {
 		that.toggleActive(this);
 	});
 
 
-}
+};
 
 App.prototype.updateStyle = function() {
 	var windowPos = this.window.scrollTop();
 	var containerPos = this.$.mainContainer.offset().top;
+
 	if (windowPos >= containerPos && containerPos > 10) {
-		this.$.introHeader.hide();
-		this.window.scrollTop(0);
-		this.$.leftMenu.addClass('fixed');
+		this.removeIntro();
 	}
-}
+};
+
+App.prototype.removeIntro = function(){
+	this.$.introHeader.hide();
+	this.window.scrollTop(0);
+	this.$.leftMenu.addClass('fixed');
+};
 
 App.prototype.initCat = function() {
 	var category = this.$.categoryMenu.attr('data-category');
@@ -93,7 +111,7 @@ App.prototype.initCat = function() {
 			categories[i].tag.addClass('active');
 		}
 	};
-}
+};
 
 App.prototype.getAjax = function(event) {
 	var that = event;
@@ -105,35 +123,106 @@ App.prototype.getAjax = function(event) {
 	    	tipId: $(that).attr('data-tipId')
 	    },
 	    success: function(data){
-	    	$('.likes-count').html(data);
-	    	$('.upvote-btn').addClass('active');
+	    	this.$.likesCount.html(data);
+	    	this.$.upvoteBtn.addClass('active');
 	    }
 	});
-}
+};
 
 App.prototype.resizeTip = function() {
 	var containerHeight = this.$.postContainer.height();
 	var titleHeight = this.$.postHeader.outerHeight();
 	var newHeight = containerHeight-titleHeight;
 
-	console.log(containerHeight, titleHeight);
-	console.log(newHeight);
 	this.$.postContent.outerHeight(newHeight);
-}
+};
 
 App.prototype.initPosts = function() {
-	var scroll = $(window).scrollTop();
-	var windowHeight = $(window).height();
+	var scroll = this.window.scrollTop();
+	var windowHeight = this.window.height();
 	this.$.postsRows.each(function() {
 		var distance = $(this).offset().top;
-		console.log((scroll+windowHeight));
-		console.log(distance);
 		if ((scroll+windowHeight) > distance && scroll > 40) {
-			console.log('appear');
 			$(this).fadeIn();
 		}
 	})
-}
+};
+
+App.prototype.randomizeIntro = function(){
+	var width  	  = this.window.width(),
+		height 	  = this.window.height(),
+		that   	  = this;
+
+	this.$.backgroundImages.each(function(){
+		var randomTop  = Math.random() * (height - $(this).height()),
+			randomLeft = Math.random() * (width - $(this).width());
+
+		$(this).css({
+			'top': randomTop,
+			'left': randomLeft
+		});
+
+		$(this).data('initialPosition',{
+			'top': randomTop,
+			'left': randomLeft
+		});
+
+		$(this).data('direction',{
+			'top': false,
+			'bottom': true,
+			'left': false,
+			'right': true
+		});
+	});
+
+	this.animateImages();
+};
+
+App.prototype.animateImages = function(){
+	var width  	  = this.window.width(),
+		height 	  = this.window.height(),
+		that   	  = this,
+		container = 30;
+		speeds    = [0.1,0.42,0.85,1.11];
+
+	function animate(){
+		that.animationId = requestAnimationFrame(animate);
+		update();
+	};
+
+	function update(){
+		that.$.backgroundImages.each(function(){
+			var top = $(this).position().top;
+			var left = $(this).position().left;
+
+			if (Math.abs(top - $(this).data('initialPosition').top) > container) {
+				console.log('change direction');
+				$(this).data('direction').top = !$(this).data('direction').top;
+				$(this).data('direction').bottom = !$(this).data('direction').bottom;
+			}
+			if (Math.abs(left - $(this).data('initialPosition').left) > container) {
+				console.log('change direction');
+				$(this).data('direction').left = !$(this).data('direction').left;
+				$(this).data('direction').right = !$(this).data('direction').right;
+			}
+
+			if ($(this).data('direction').top) {
+				$(this).css('top','-='+speeds[Math.floor(Math.random() * speeds.length)]);
+			}
+			else {
+				$(this).css('top','+='+speeds[Math.floor(Math.random() * speeds.length)]);
+			}
+			if ($(this).data('direction').left) {
+				$(this).css('left','-='+speeds[Math.floor(Math.random() * speeds.length)]);
+			}
+			else {
+				$(this).css('left','+='+speeds[Math.floor(Math.random() * speeds.length)]);
+			}
+		});
+	}
+
+	animate();
+};
 
 App.prototype.toggleActive = function(title) {
 	$(title).parent().toggleClass('active');

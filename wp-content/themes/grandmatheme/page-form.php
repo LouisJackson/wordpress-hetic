@@ -21,7 +21,7 @@
 										'post_content'    => false,
 										'new_post'		=> array(
 											'post_type'		=> 'tips',
-											'post_status'		=> 'publish'
+											'post_status'	=> 'publish'
  										),
  										'return' => 'http://wordpress-hetic.dev/tip-submitted/',
 										'fields' => array('the_taxonomy','name','e-mail','etapes'),
