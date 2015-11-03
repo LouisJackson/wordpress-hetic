@@ -1,5 +1,4 @@
 <?php
-
 	get_header();
 
 	if (isset($_GET)){
@@ -23,7 +22,7 @@
 		 $cat_args = array(
 		'show_option_all'    => 'all',
 		'orderby'            => 'name',
-		'order'              => 'ASC',
+		'order'              => 'DESC',
 		'style'              => 'list',
 		'show_count'         => 0,
 		'hide_empty'         => 1,
@@ -60,7 +59,7 @@
 			$args = array( 'post_type' => 'tips', 'posts_per_page' => 1000 );
 
 			if ($order == 'reverse'){
-				$args['order'] = 'DESC';
+				$args['order'] = 'ASC';
 				$args['orderby'] = 'date';
 			}
 
@@ -71,7 +70,7 @@
 			}
 
 			else {
-				$args['order'] = 'ASC';
+				$args['order'] = 'DESC';
 				$args['orderby'] = 'date';
 			}
 

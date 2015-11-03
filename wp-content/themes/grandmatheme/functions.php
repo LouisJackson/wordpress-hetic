@@ -18,7 +18,6 @@ function grandma_widgets_init() {
 }
 add_action( 'widgets_init', 'grandma_widgets_init' );
 
-
 function create_tips() {
   register_post_type( 'tips',
     array(
@@ -28,7 +27,7 @@ function create_tips() {
       ),
       'public' => true,
       'taxonomies' => array('category'),
-      'has_archive' => true,
+      'has_archive' => false,
       'supports' => array(
 		'title',
 		'author',
@@ -39,19 +38,21 @@ function create_tips() {
     )
   );
 }
-
 add_action('init', 'create_tips');
 
 add_filter( 'acf/get_valid_field', 'change_input_labels');
 function change_input_labels($field) {
-    
   if($field['name'] == '_post_title') {
     $field['label'] = 'How to';
   }
     
-  return $field;
-    
+  return $field;  
 }
+
+function init_likes($post_id){
+  add_post_meta($post_id, 'likes', 0);
+}
+add_action('acf/save_post', 'init_likes', 30);
 
 show_admin_bar(false);
 

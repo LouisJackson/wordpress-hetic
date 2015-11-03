@@ -2,7 +2,7 @@
 /*
 Theme Name: Grandma's recipes
 Theme URI: http://wordpress.org
-Description: Le thème officiel de Grandma's recipes
+Description: Le th├¿me officiel de Grandma's recipes
 Author: Louis Amiot
 Author URI: http://louisamiot.com
 Version: 1.0
@@ -240,113 +240,115 @@ body.home .main-container .fixed {
       .main-container nav form[role='search'] input[type='submit'] {
         display: none; }
 
-body.home .intro-header {
-  display: block; }
-body.home .main-container nav {
-  position: static; }
-body.home .main-container .content {
-  position: absolute;
-  left: 240px;
-  background-color: #52cedf;
-  padding-left: 60px; }
-  body.home .main-container .content .categories, body.home .main-container .content .ordering {
-    padding-top: 30px;
-    float: left;
-    width: 70%;
-    height: 115px;
-    font-family: "Open Sans", sans-serif;
-    font-size: 14px;
-    text-transform: uppercase; }
-    body.home .main-container .content .categories a, body.home .main-container .content .ordering a {
-      text-decoration: none; }
-    body.home .main-container .content .categories li, body.home .main-container .content .ordering li {
-      list-style: none;
-      display: inline-block;
-      padding: 5px 20px 5px 0; }
-  body.home .main-container .content .categories {
-    width: 66%;
-    box-sizing: border-box;
-    padding-right: 5%; }
-    body.home .main-container .content .categories .title {
-      color: #fff;
-      font-weight: 700;
-      display: block; }
-    body.home .main-container .content .categories .cat-item, body.home .main-container .content .categories .cat-item-all {
-      font-weight: 300; }
-      body.home .main-container .content .categories .cat-item a, body.home .main-container .content .categories .cat-item-all a {
-        color: #327580; }
-        body.home .main-container .content .categories .cat-item a.active, body.home .main-container .content .categories .cat-item-all a.active {
-          font-weight: 700; }
-        body.home .main-container .content .categories .cat-item a:hover, body.home .main-container .content .categories .cat-item-all a:hover {
-          color: #fff; }
-    body.home .main-container .content .categories .cat-item-all {
-      font-weight: 700; }
-  body.home .main-container .content .ordering {
-    width: 30%; }
-    body.home .main-container .content .ordering .title {
-      color: #fff;
-      font-weight: 700;
-      display: block; }
-    body.home .main-container .content .ordering a {
-      color: #327580;
-      font-weight: 300;
-      display: inline-block; }
-      body.home .main-container .content .ordering a.active {
-        font-weight: 700; }
-      body.home .main-container .content .ordering a:hover {
-        color: #fff; }
-  body.home .main-container .content .tips {
-    float: left;
-    width: 100%;
-    height: 100%;
-    display: table; }
-    body.home .main-container .content .tips .tips-row {
-      display: table-row; }
-    body.home .main-container .content .tips .entry {
-      box-sizing: border-box;
-      box-shadow: 11px 11px 21px 0px rgba(0, 0, 0, 0.18);
+body.home {
+  display: none; }
+  body.home .intro-header {
+    display: block; }
+  body.home .main-container nav {
+    position: static; }
+  body.home .main-container .content {
+    position: absolute;
+    left: 240px;
+    background-color: #52cedf;
+    padding-left: 60px; }
+    body.home .main-container .content .categories, body.home .main-container .content .ordering {
+      padding-top: 30px;
       float: left;
-      width: 28%;
-      margin-right: 5%;
-      margin-bottom: 5%;
-      background-color: #fff;
-      display: table-cell; }
-      body.home .main-container .content .tips .entry:nth-child(3n) {
-        margin-right: 0; }
-      body.home .main-container .content .tips .entry .img-container {
-        width: 100%;
-        /* whatever width you want */
+      width: 70%;
+      height: 115px;
+      font-family: "Open Sans", sans-serif;
+      font-size: 14px;
+      text-transform: uppercase; }
+      body.home .main-container .content .categories a, body.home .main-container .content .ordering a {
+        text-decoration: none; }
+      body.home .main-container .content .categories li, body.home .main-container .content .ordering li {
+        list-style: none;
         display: inline-block;
-        position: relative;
-        overflow: hidden; }
-      body.home .main-container .content .tips .entry .img-container:after {
-        padding-top: 70%;
-        /* 16:9 ratio */
-        display: block;
-        content: ''; }
-      body.home .main-container .content .tips .entry .wrapper {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        /* fill parent */
-        background-color: deepskyblue;
-        /* let's see it! */
-        color: white; }
-      body.home .main-container .content .tips .entry img {
-        width: 100%;
-        height: auto; }
-      body.home .main-container .content .tips .entry h3 {
-        font-family: "Open Sans", sans-serif;
-        font-size: 14px;
-        color: #7a7979;
-        text-transform: uppercase;
-        padding: 20px;
-        line-height: 1.5;
-        text-decoration: none; }
-      body.home .main-container .content .tips .entry a {
-        text-decoration: none; }
+        padding: 5px 20px 5px 0; }
+    body.home .main-container .content .categories {
+      width: 66%;
+      box-sizing: border-box;
+      padding-right: 5%; }
+      body.home .main-container .content .categories .title {
+        color: #fff;
+        font-weight: 700;
+        display: block; }
+      body.home .main-container .content .categories .cat-item, body.home .main-container .content .categories .cat-item-all {
+        font-weight: 300; }
+        body.home .main-container .content .categories .cat-item a, body.home .main-container .content .categories .cat-item-all a {
+          color: #327580; }
+          body.home .main-container .content .categories .cat-item a.active, body.home .main-container .content .categories .cat-item-all a.active {
+            font-weight: 700; }
+          body.home .main-container .content .categories .cat-item a:hover, body.home .main-container .content .categories .cat-item-all a:hover {
+            color: #fff; }
+      body.home .main-container .content .categories .cat-item-all {
+        font-weight: 700; }
+    body.home .main-container .content .ordering {
+      width: 30%; }
+      body.home .main-container .content .ordering .title {
+        color: #fff;
+        font-weight: 700;
+        display: block; }
+      body.home .main-container .content .ordering a {
+        color: #327580;
+        font-weight: 300;
+        display: inline-block; }
+        body.home .main-container .content .ordering a.active {
+          font-weight: 700; }
+        body.home .main-container .content .ordering a:hover {
+          color: #fff; }
+    body.home .main-container .content .tips {
+      float: left;
+      width: 100%;
+      height: 100%;
+      display: table; }
+      body.home .main-container .content .tips .tips-row {
+        display: table-row; }
+      body.home .main-container .content .tips .entry {
+        box-sizing: border-box;
+        box-shadow: 11px 11px 21px 0px rgba(0, 0, 0, 0.18);
+        float: left;
+        width: 28%;
+        margin-right: 5%;
+        margin-bottom: 5%;
+        background-color: #fff;
+        display: table-cell; }
+        body.home .main-container .content .tips .entry:nth-child(3n) {
+          margin-right: 0; }
+        body.home .main-container .content .tips .entry .img-container {
+          width: 100%;
+          /* whatever width you want */
+          display: inline-block;
+          position: relative;
+          overflow: hidden; }
+        body.home .main-container .content .tips .entry .img-container:after {
+          padding-top: 70%;
+          /* 16:9 ratio */
+          display: block;
+          content: ''; }
+        body.home .main-container .content .tips .entry .wrapper {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          left: 0;
+          /* fill parent */
+          background-color: deepskyblue;
+          /* let's see it! */
+          color: white; }
+        body.home .main-container .content .tips .entry img {
+          width: 100%;
+          height: auto; }
+        body.home .main-container .content .tips .entry h3 {
+          font-family: "Open Sans", sans-serif;
+          font-size: 14px;
+          color: #7a7979;
+          text-transform: uppercase;
+          padding: 20px;
+          line-height: 1.5;
+          text-decoration: none; }
+        body.home .main-container .content .tips .entry a {
+          text-decoration: none; }
 
 body.single .post-wrapper {
   margin-left: 240px;

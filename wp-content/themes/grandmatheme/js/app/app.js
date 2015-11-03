@@ -19,10 +19,11 @@ App.prototype.init = function() {
 	this.$.postContent = this.$.mainContainer.find('.post-container .entry-content');
 	this.$.posts = this.$.mainContainer.find('.tips .entry');
 	this.$.postsRows = this.$.mainContainer.find('.tips .tips-row');
+	this.$.upvoteBtn = this.$.mainContainer.find('.upvote-btn');
+	this.$.likesCount = this.$.mainContainer.find('.likes-count');
 	this.window = $(window);
 	
 	this.$.randomTitle.attr('href',this.$.mainContainer.attr('data-random'));	
-	this.$.postsRows.hide();
 	this.initEvents();
 	this.resizeTip();
 	//this.initPosts();
@@ -35,6 +36,10 @@ App.prototype.init = function() {
 App.prototype.initEvents = function() {
 	var that = this;
 
+	if (Cookies.get('visited')){
+		this.removeIntro();
+	}
+
 	if (this.$.home.length > 0) {
 		this.window.on('scroll', function() {
 			that.updateStyle();
@@ -46,35 +51,33 @@ App.prototype.initEvents = function() {
 		that.$.searchBox.fadeToggle();
 	});
 
-	this.$.categoryMenu.on('click', function(e){
-		e.preventDefault();
-		$('.categories').slideDown();
-	});
-
-	$('.upvote-btn').on('click', function(){
+	this.$.upvoteBtn.on('click', function(){
 		var event = this;
 		that.getAjax(event);
 	});
 
-	$(window).on('resize', function(){
+	this.window.on('resize', function(){
 		that.resizeTip();
-	})
+	});
 
-	$(window).on('scroll', function() {
+	this.window.on('scroll', function() {
 		that.initPosts();
-	})
-
-
+	});
 }
 
 App.prototype.updateStyle = function() {
 	var windowPos = this.window.scrollTop();
 	var containerPos = this.$.mainContainer.offset().top;
+
 	if (windowPos >= containerPos && containerPos > 10) {
-		this.$.introHeader.hide();
-		this.window.scrollTop(0);
-		this.$.leftMenu.addClass('fixed');
+		this.removeIntro();
 	}
+}
+
+App.prototype.removeIntro = function(){
+	this.$.introHeader.hide();
+	this.window.scrollTop(0);
+	this.$.leftMenu.addClass('fixed');
 }
 
 App.prototype.initCat = function() {
@@ -100,8 +103,8 @@ App.prototype.getAjax = function(event) {
 	    	tipId: $(that).attr('data-tipId')
 	    },
 	    success: function(data){
-	    	$('.likes-count').html(data);
-	    	$('.upvote-btn').addClass('active');
+	    	this.$.likesCount.html(data);
+	    	this.$.upvoteBtn.addClass('active');
 	    }
 	});
 }
@@ -111,20 +114,15 @@ App.prototype.resizeTip = function() {
 	var titleHeight = this.$.postHeader.outerHeight();
 	var newHeight = containerHeight-titleHeight;
 
-	console.log(containerHeight, titleHeight);
-	console.log(newHeight);
 	this.$.postContent.outerHeight(newHeight);
 }
 
 App.prototype.initPosts = function() {
-	var scroll = $(window).scrollTop();
-	var windowHeight = $(window).height();
+	var scroll = this.window.scrollTop();
+	var windowHeight = this.window.height();
 	this.$.postsRows.each(function() {
 		var distance = $(this).offset().top;
-		console.log((scroll+windowHeight));
-		console.log(distance);
 		if ((scroll+windowHeight) > distance && scroll > 40) {
-			console.log('appear');
 			$(this).fadeIn();
 		}
 	})
