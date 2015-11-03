@@ -24,6 +24,7 @@ App.prototype.init = function() {
 	this.$.postContent = this.$.mainContainer.find('.post-container .entry-content');
 	this.$.posts = this.$.mainContainer.find('.tips .entry');
 	this.$.postsRows = this.$.mainContainer.find('.tips .tips-row');
+	this.$.menuTitle = this.$.mainContainer.find('.title');
 	this.window = $(window);
 	
 	this.$.randomTitle.attr('href',this.$.mainContainer.attr('data-random'));	
@@ -68,6 +69,10 @@ App.prototype.initEvents = function() {
 	$(window).on('scroll', function() {
 		that.initPosts();
 	})
+
+	this.$.menuTitle.on('click', function() {
+		that.toggleActive(this);
+	});
 
 
 }
@@ -133,6 +138,10 @@ App.prototype.initPosts = function() {
 			$(this).fadeIn();
 		}
 	})
+}
+
+App.prototype.toggleActive = function(title) {
+	$(title).parent().toggleClass('active');
 }
 
 $(document).ready(function(){

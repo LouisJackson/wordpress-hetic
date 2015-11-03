@@ -36,8 +36,11 @@ body.home {
 					color: $white;
 					font-weight: 700;
 					display: block;
+					cursor: pointer;
 				}
 				.cat-item, .cat-item-all {
+					opacity: 0;
+					transition: all 0.15s;
 					font-weight: 300;
 					a {
 						color: $darkBlue;
@@ -52,6 +55,11 @@ body.home {
 				.cat-item-all {
 					font-weight: 700;
 				}
+				&.active {
+					.cat-item, .cat-item-all {
+						opacity: 1;
+					}
+				}
 			}
 			.ordering {
 				width: 30%;
@@ -59,6 +67,7 @@ body.home {
 					color: $white;
 					font-weight: 700;
 					display: block;
+					cursor: pointer;
 				}
 				a {
 					color: $darkBlue;
@@ -70,6 +79,15 @@ body.home {
 					}
 					&:hover {
 						color: $white;
+					}
+				}
+				.cat-item {
+					opacity: 0;
+					transition: all 0.15s;
+				}
+				&.active {
+					.cat-item {
+						opacity: 1;
 					}
 				}
 			}

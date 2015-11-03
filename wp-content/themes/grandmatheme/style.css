@@ -277,8 +277,11 @@ body.home .main-container .content {
     body.home .main-container .content .categories .title {
       color: #fff;
       font-weight: 700;
-      display: block; }
+      display: block;
+      cursor: pointer; }
     body.home .main-container .content .categories .cat-item, body.home .main-container .content .categories .cat-item-all {
+      opacity: 0;
+      transition: all 0.15s;
       font-weight: 300; }
       body.home .main-container .content .categories .cat-item a, body.home .main-container .content .categories .cat-item-all a {
         color: #327580; }
@@ -288,12 +291,15 @@ body.home .main-container .content {
           color: #fff; }
     body.home .main-container .content .categories .cat-item-all {
       font-weight: 700; }
+    body.home .main-container .content .categories.active .cat-item, body.home .main-container .content .categories.active .cat-item-all {
+      opacity: 1; }
   body.home .main-container .content .ordering {
     width: 30%; }
     body.home .main-container .content .ordering .title {
       color: #fff;
       font-weight: 700;
-      display: block; }
+      display: block;
+      cursor: pointer; }
     body.home .main-container .content .ordering a {
       color: #327580;
       font-weight: 300;
@@ -302,6 +308,11 @@ body.home .main-container .content {
         font-weight: 700; }
       body.home .main-container .content .ordering a:hover {
         color: #fff; }
+    body.home .main-container .content .ordering .cat-item {
+      opacity: 0;
+      transition: all 0.15s; }
+    body.home .main-container .content .ordering.active .cat-item {
+      opacity: 1; }
   body.home .main-container .content .tips {
     float: left;
     width: 100%;
