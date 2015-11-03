@@ -42,8 +42,8 @@
     <meta name="twitter:image" content="" />
     <!-- End Twitter meta -->
 
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans:700,800,300,400,800italic,700italic,600italic,400italic,300italic,600' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,800,300,400,800italic,700italic,600italic,400italic,300italic,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css">
 	<title>Grandma's Recipes</title>
 </head>
 <body <?php body_class(); ?>>

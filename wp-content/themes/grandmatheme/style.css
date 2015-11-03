@@ -189,7 +189,10 @@ body.home .main-container .fixed {
     color: #fff;
     position: absolute;
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    overflow: hidden; }
+    .intro-header div.background div {
+      position: absolute; }
 
 .main-container {
   width: 100%;
