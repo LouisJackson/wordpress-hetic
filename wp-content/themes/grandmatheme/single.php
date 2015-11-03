@@ -24,9 +24,13 @@
 				</p>
 			</div>
 			<div class="entry-content">
-				<?php foreach (get_field('etapes') as $step): ?>
+				<?php $i = 1;
+				foreach (get_field('etapes') as $step): ?>
+					<h4><?= $i; ?>.</h4>
 					<p><?= $step['steps'] ?></p>
-				<?php endforeach; ?>
+				<?php 
+				$i++;
+				endforeach; ?>
 			</div>
 		</div>
 	</div>

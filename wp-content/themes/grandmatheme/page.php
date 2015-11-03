@@ -11,20 +11,7 @@
 							</div>
 							<div class="entry-content">
 							
-								<?php echo '<pre>';
-								print_r(get_field('taxonomy'));
-								echo '</pre>'; ?>
-								<?php acf_form(array(
-										'post_id'		=> 'new_post',
-										'post_title'    =>	true,
-										'post_content'    => false,
-										'new_post'		=> array(
-											'post_type'		=> 'tips',
-											'post_status'		=> 'publish'
- 										),
-										'fields' => array('the_taxonomy','name','e-mail','etapes'),
-										'submit_value'		=> 'Submit'
-									)); ?>
+								<?php the_content(); ?>
 							</div>
 						</div>
 					</div>

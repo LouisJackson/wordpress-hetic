@@ -82,7 +82,13 @@ body.single {
 					height: 80%;
 					padding: 40px;
 					font-size: 14px;
-					line-height: 21px;;
+					line-height: 21px;
+					h4 {
+						color: $darkerBlue;
+						font-weight: 700;
+						font-size: 20px;
+						padding: 20px 0 10px 0;
+					}
 				}
 			}
 		}

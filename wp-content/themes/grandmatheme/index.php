@@ -57,7 +57,7 @@
 		</div>
 		<div class="tips">
 			<?php 
-			$args = array( 'post_type' => 'tips', 'posts_per_page' => 10 );
+			$args = array( 'post_type' => 'tips', 'posts_per_page' => 1000 );
 
 			if ($order == 'reverse'){
 				$args['order'] = 'DESC';

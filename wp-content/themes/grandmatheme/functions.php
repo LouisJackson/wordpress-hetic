@@ -53,4 +53,6 @@ function change_input_labels($field) {
     
 }
 
+show_admin_bar(false);
+
 ?>

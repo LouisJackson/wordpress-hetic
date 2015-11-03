@@ -22,12 +22,15 @@ App.prototype.init = function() {
 	this.$.postContainer = this.$.mainContainer.find('.post-container');
 	this.$.postHeader = this.$.mainContainer.find('.post-container .post-header');
 	this.$.postContent = this.$.mainContainer.find('.post-container .entry-content');
+	this.$.posts = this.$.mainContainer.find('.tips .entry');
+	this.$.postsRows = this.$.mainContainer.find('.tips .tips-row');
 	this.window = $(window);
 	
 	this.$.randomTitle.attr('href',this.$.mainContainer.attr('data-random'));	
-
+	this.$.postsRows.hide();
 	this.initEvents();
 	this.resizeTip();
+	//this.initPosts();
 
 	if (this.$.body.hasClass('category')) {
 		this.initCat();
@@ -60,6 +63,10 @@ App.prototype.initEvents = function() {
 
 	$(window).on('resize', function(){
 		that.resizeTip();
+	})
+
+	$(window).on('scroll', function() {
+		that.initPosts();
 	})
 
 
@@ -114,4 +121,20 @@ App.prototype.resizeTip = function() {
 	this.$.postContent.outerHeight(newHeight);
 }
 
-var app = new App();
+App.prototype.initPosts = function() {
+	var scroll = $(window).scrollTop();
+	var windowHeight = $(window).height();
+	this.$.postsRows.each(function() {
+		var distance = $(this).offset().top;
+		console.log((scroll+windowHeight));
+		console.log(distance);
+		if ((scroll+windowHeight) > distance && scroll > 40) {
+			console.log('appear');
+			$(this).fadeIn();
+		}
+	})
+}
+
+$(document).ready(function(){
+	var app = new App();
+});
