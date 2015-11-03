@@ -53,6 +53,14 @@
 			<h1>Grandma's tips</h1>
 			<h2>Discover the best tips your grandma could give you!</h2>
 		</div>
+        <div class="background">
+            <div class="icon_lipstick-beauty"></div>
+            <div class="icon_bandage-health"></div>
+            <div class="icon_bucket-cleaning"></div>
+            <div class="icon_lamp-idea"></div>
+            <div class="icon_needle"></div>
+            <div class="icon_pie-ccoking"></div>
+        </div>
 		<div class="get-started">
 			Get started
 		</div>
