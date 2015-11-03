@@ -3,11 +3,11 @@
 
 @font-face {
 	font-family:"icons";
-	src:url("fonts/icons.eot?fb7dff06d22fe5b23a548078564f44a8");
+	src:url("fonts/icons.eot?d86bb6d7041521362c860c300d41bbb0");
 	src:url("fonts/icons.eot?#iefix") format("embedded-opentype"),
-		url("fonts/icons.woff?fb7dff06d22fe5b23a548078564f44a8") format("woff"),
-		url("fonts/icons.ttf?fb7dff06d22fe5b23a548078564f44a8") format("truetype"),
-		url("fonts/icons.svg?fb7dff06d22fe5b23a548078564f44a8#icons") format("svg");
+		url("fonts/icons.woff?d86bb6d7041521362c860c300d41bbb0") format("woff"),
+		url("fonts/icons.ttf?d86bb6d7041521362c860c300d41bbb0") format("truetype"),
+		url("fonts/icons.svg?d86bb6d7041521362c860c300d41bbb0#icons") format("svg");
 	font-weight:normal;
 	font-style:normal;
 }
@@ -41,56 +41,61 @@
 }
 
 
-.icon_bandage-health:before {
+.icon_arrow:before {
 	content:"\f103";
 }
 
 
-.icon_bucket-cleaning:before {
+.icon_bandage-health:before {
 	content:"\f104";
 }
 
 
-.icon_it-works:before {
+.icon_bucket-cleaning:before {
 	content:"\f105";
 }
 
 
-.icon_lamp-idea:before {
+.icon_it-works:before {
 	content:"\f106";
 }
 
 
-.icon_lipstick-beauty:before {
+.icon_lamp-idea:before {
 	content:"\f107";
 }
 
 
-.icon_needle:before {
+.icon_lipstick-beauty:before {
 	content:"\f108";
 }
 
 
-.icon_pie-ccoking:before {
+.icon_needle:before {
 	content:"\f109";
 }
 
 
-.icon_random-tip:before {
+.icon_pie-ccoking:before {
 	content:"\f10a";
 }
 
 
-.icon_search:before {
+.icon_random-tip:before {
 	content:"\f10b";
 }
 
 
-.icon_share:before {
+.icon_search:before {
 	content:"\f10c";
 }
 
 
-.icon_top-tips:before {
+.icon_share:before {
 	content:"\f10d";
+}
+
+
+.icon_top-tips:before {
+	content:"\f10e";
 }

@@ -39,6 +39,18 @@ body.home {
 					font-weight: 700;
 					display: block;
 					cursor: pointer;
+					&:after {
+						font-family:"icons";
+						@extend .icon_arrow:before;
+						position: relative;
+						display: inline-block;
+						font-size: 10px;
+						margin-left: 10px;
+						transition: transform 0.3s;
+					}
+					&:hover {
+						color: $lighterBlue;
+					}
 				}
 				.cat-item, .cat-item-all {
 					opacity: 0;
@@ -61,6 +73,9 @@ body.home {
 					.cat-item, .cat-item-all {
 						opacity: 1;
 					}
+					.title:after {
+						transform: rotate(180deg);
+					}
 				}
 			}
 			.ordering {
@@ -70,6 +85,18 @@ body.home {
 					font-weight: 700;
 					display: block;
 					cursor: pointer;
+					&:after {
+						font-family:"icons";
+						font-size: 10px;
+						@extend .icon_arrow:before;
+						display: inline-block;
+						position: relative;
+						margin-left: 10px;
+						transition: transform 0.3s;
+					}
+					&:hover {
+						color: $lighterBlue;
+					}
 				}
 				a {
 					color: $darkBlue;
@@ -90,6 +117,9 @@ body.home {
 				&.active {
 					.cat-item {
 						opacity: 1;
+					}
+					.title:after {
+						transform: rotate(180deg);
 					}
 				}
 			}
