@@ -22,9 +22,11 @@ App.prototype.init = function() {
 	this.$.postContainer = this.$.mainContainer.find('.post-container');
 	this.$.postHeader = this.$.mainContainer.find('.post-container .post-header');
 	this.$.postContent = this.$.mainContainer.find('.post-container .entry-content');
+	this.$.upvoteBtn = this.$.mainContainer.find('.upvote-btn');
+	this.$.likesCount = this.$.mainContainer.find('.likes-count');
 	this.window = $(window);
-	
-	this.$.randomTitle.attr('href',this.$.mainContainer.attr('data-random'));	
+
+	this.$.randomTitle.attr('href',this.$.mainContainer.attr('data-random'));
 
 	this.initEvents();
 	this.resizeTip();
@@ -48,21 +50,14 @@ App.prototype.initEvents = function() {
 		that.$.searchBox.fadeToggle();
 	});
 
-	this.$.categoryMenu.on('click', function(e){
-		e.preventDefault();
-		$('.categories').slideDown();
-	});
-
-	$('.upvote-btn').on('click', function(){
+	this.$.upvoteBtn.on('click', function(){
 		var event = this;
 		that.getAjax(event);
 	});
 
-	$(window).on('resize', function(){
+	this.window.on('resize', function(){
 		that.resizeTip();
 	})
-
-
 }
 
 App.prototype.updateStyle = function() {
@@ -98,8 +93,8 @@ App.prototype.getAjax = function(event) {
 	    	tipId: $(that).attr('data-tipId')
 	    },
 	    success: function(data){
-	    	$('.likes-count').html(data);
-	    	$('.upvote-btn').addClass('active');
+	    	this.$.likesCount.html(data);
+	    	this.$.upvoteBtn.addClass('active');
 	    }
 	});
 }

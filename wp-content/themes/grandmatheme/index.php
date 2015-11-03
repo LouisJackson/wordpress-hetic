@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 	get_header();
 
@@ -19,7 +19,7 @@
 	<div class="content clearfix">
 		<div class="categories">
 		<li class="title">Categories</li>
-		<?php 
+		<?php
 		 $cat_args = array(
 		'show_option_all'    => 'all',
 		'orderby'            => 'name',
@@ -46,17 +46,17 @@
 		'taxonomy'           => 'category',
 		'walker'             => null
 	    );
-	    wp_list_categories( $cat_args ); 
-		 ?> 
+	    wp_list_categories( $cat_args );
+		 ?>
 		</div>
 		<div class="ordering">
 			<li class="title">Order By</span>
 			<li class="cat-item"><a href="?order=default" class="<?= ($order == '') ? 'active' : ''; ?>">Recent</a></li>
-			<li class="cat-item"><a href="?order=reverse" class="<?= ($order == 'reverse') ? 'active' : ''; ?>">Ancient</a></li>
+			<li class="cat-item"><a href="?order=reverse" class="<?= ($order == 'reverse') ? 'active' : ''; ?>">Old</a></li>
 			<li class="cat-item"><a href="?order=likes" class="<?= ($order == 'likes') ? 'active' : ''; ?>">Like</a></li>
 		</div>
 		<div class="tips">
-			<?php 
+			<?php
 			$args = array( 'post_type' => 'tips', 'posts_per_page' => 10 );
 
 			if ($order == 'reverse'){
@@ -78,7 +78,7 @@
 			$loop = new WP_Query( $args );
 			$i = 0;
 			while ( $loop->have_posts() ) : $loop->the_post();
-			
+
 			if (($i % 3) == 0): ?><div class="tips-row"><?php endif; ?>
 			<div class="entry">
 				<div class="img-container">
