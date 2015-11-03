@@ -2,7 +2,7 @@
 /*
 Theme Name: Grandma's recipes
 Theme URI: http://wordpress.org
-Description: Le thème officiel de Grandma's recipes
+Description: Le th├¿me officiel de Grandma's recipes
 Author: Louis Amiot
 Author URI: http://louisamiot.com
 Version: 1.0
@@ -324,6 +324,7 @@ body.home {
       height: 100%;
       display: table; }
       body.home .main-container .content .tips .tips-row {
+        opacity: 0;
         display: table-row; }
       body.home .main-container .content .tips .entry {
         box-sizing: border-box;

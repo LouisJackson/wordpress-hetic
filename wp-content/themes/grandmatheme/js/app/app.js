@@ -32,7 +32,6 @@ App.prototype.init = function() {
 	this.initEvents();
 	this.resizeTip();
 	this.randomizeIntro();
-	//this.initPosts();
 
 	if (this.$.body.hasClass('category')) {
 		this.initCat();
@@ -44,13 +43,13 @@ App.prototype.init = function() {
 App.prototype.initEvents = function() {
 	var that = this;
 
-	/*if (Cookies.get('visited')){
+	if (Cookies.get('visited')){
 		this.removeIntro();
 	}
 
 	else {
 		Cookies.set('visited', true, {expires: 7});
-	}*/
+	}
 
 	if (this.$.home.length > 0) {
 		this.window.on('scroll', function() {
@@ -74,15 +73,19 @@ App.prototype.initEvents = function() {
 		that.randomizeIntro();
 	});
 
-	this.window.on('scroll', function() {
-		that.initPosts();
-	});
-
 	this.$.menuTitle.on('click', function() {
 		that.toggleActive(this);
 	});
 
-
+	this.window.load(function(){
+		that.$.postsRows.each(function(){
+			$(this).waypoint(function(direction){
+				$(this.element).animate({'opacity': 1}, 500);
+			}, {
+				offset: $(window).height() / 1.1
+			});
+		});	
+	});
 };
 
 App.prototype.updateStyle = function() {
@@ -94,10 +97,11 @@ App.prototype.updateStyle = function() {
 	}
 };
 
-App.prototype.removeIntro = function(){
+App.prototype.removeIntro = function() {
 	this.$.introHeader.hide();
 	this.window.scrollTop(0);
 	this.$.leftMenu.addClass('fixed');
+	Waypoint.refreshAll();
 };
 
 App.prototype.initCat = function() {
@@ -137,25 +141,15 @@ App.prototype.resizeTip = function() {
 	this.$.postContent.outerHeight(newHeight);
 };
 
-App.prototype.initPosts = function() {
-	var scroll = this.window.scrollTop();
-	var windowHeight = this.window.height();
-	this.$.postsRows.each(function() {
-		var distance = $(this).offset().top;
-		if ((scroll+windowHeight) > distance && scroll > 40) {
-			$(this).fadeIn();
-		}
-	})
-};
-
-App.prototype.randomizeIntro = function(){
-	var width  	  = this.window.width(),
-		height 	  = this.window.height(),
+App.prototype.randomizeIntro = function() {
+	var width  	  = this.window.width() - this.$.backgroundImages.width(),
+		height 	  = this.window.height() - this.$.backgroundImages.height(),
 		that   	  = this;
 
 	this.$.backgroundImages.each(function(){
 		var randomTop  = Math.random() * (height - $(this).height()),
-			randomLeft = Math.random() * (width - $(this).width());
+			randomLeft = Math.random() * (width - $(this).width()),
+			speeds     = [0.1, 0.25, 0.4, 0.6];
 
 		$(this).css({
 			'top': randomTop,
@@ -173,17 +167,18 @@ App.prototype.randomizeIntro = function(){
 			'left': false,
 			'right': true
 		});
+
+		$(this).data('topSpeed', speeds[Math.floor(Math.random() * speeds.length)]);
+		$(this).data('leftSpeed', speeds[Math.floor(Math.random() * speeds.length)]);
 	});
 
-	this.animateImages();
+	this.animateIntro();
 };
 
-App.prototype.animateImages = function(){
-	var width  	  = this.window.width(),
-		height 	  = this.window.height(),
-		that   	  = this,
-		container = 30;
-		speeds    = [0.1,0.42,0.85,1.11];
+App.prototype.animateIntro = function() {
+	var that   	  = this,
+		container = 30,
+		speeds    = [0.1, 0.25, 0.4, 0.6];
 
 	function animate(){
 		that.animationId = requestAnimationFrame(animate);
@@ -196,27 +191,30 @@ App.prototype.animateImages = function(){
 			var left = $(this).position().left;
 
 			if (Math.abs(top - $(this).data('initialPosition').top) > container) {
-				console.log('change direction');
 				$(this).data('direction').top = !$(this).data('direction').top;
 				$(this).data('direction').bottom = !$(this).data('direction').bottom;
+
+				$(this).data('topSpeed', speeds[Math.floor(Math.random() * speeds.length)]);
 			}
+
 			if (Math.abs(left - $(this).data('initialPosition').left) > container) {
-				console.log('change direction');
 				$(this).data('direction').left = !$(this).data('direction').left;
 				$(this).data('direction').right = !$(this).data('direction').right;
+
+				$(this).data('leftSpeed', speeds[Math.floor(Math.random() * speeds.length)]);
 			}
 
 			if ($(this).data('direction').top) {
-				$(this).css('top','-='+speeds[Math.floor(Math.random() * speeds.length)]);
+				$(this).css('top', '-='+$(this).data('topSpeed'));
 			}
 			else {
-				$(this).css('top','+='+speeds[Math.floor(Math.random() * speeds.length)]);
+				$(this).css('top', '+='+$(this).data('topSpeed'));
 			}
 			if ($(this).data('direction').left) {
-				$(this).css('left','-='+speeds[Math.floor(Math.random() * speeds.length)]);
+				$(this).css('left', '-='+$(this).data('leftSpeed'));
 			}
 			else {
-				$(this).css('left','+='+speeds[Math.floor(Math.random() * speeds.length)]);
+				$(this).css('left', '+='+$(this).data('leftSpeed'));
 			}
 		});
 	}
@@ -226,7 +224,7 @@ App.prototype.animateImages = function(){
 
 App.prototype.toggleActive = function(title) {
 	$(title).parent().toggleClass('active');
-}
+};
 
 $(document).ready(function(){
 	var app = new App();
